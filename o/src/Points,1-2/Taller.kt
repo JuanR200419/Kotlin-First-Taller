@@ -1,6 +1,6 @@
 package `Points,1-2`
 import kotlin.math.pow
-
+//decimal
 fun baseADecimal(base:Int) {
     var baseInvert= base.toString().reversed()
     var total=0
