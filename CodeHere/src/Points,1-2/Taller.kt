@@ -4,7 +4,6 @@ import kotlin.math.pow
 
 
 
-
 //Punto 2 pasamos binario a decimal
 fun baseADecimal(base:Int) {
     var baseInvert= base.toString().reversed()
