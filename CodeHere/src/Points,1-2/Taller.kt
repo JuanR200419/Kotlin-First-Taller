@@ -3,7 +3,12 @@ import kotlin.math.pow
 
 
 
-
+//punto 1 pasamos de decimal a binario
+fun decimalABaseDos(n: Int): String {
+    if(n==0) return "0"
+    if(n==1) return "1"
+    return decimalABaseDos(n/2) + (n%2).toString()
+}
 
 //Punto 2 pasamos binario a decimal
 fun baseADecimal(base:Int) {
@@ -17,7 +22,10 @@ fun baseADecimal(base:Int) {
 println(total)
 }
 fun main() {
-baseADecimal(10001000     )
+    val decimal = 22
+    println("el valor decimal en base dos de $decimal es ${decimalABaseDos(decimal)}.")
+
+    baseADecimal(10001000)
 }
 
 
