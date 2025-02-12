@@ -1,6 +1,11 @@
 package `Points,1-2`
 import kotlin.math.pow
-//decimal
+
+
+
+
+
+//Punto 2 pasamos binario a decimal
 fun baseADecimal(base:Int) {
     var baseInvert= base.toString().reversed()
     var total=0
