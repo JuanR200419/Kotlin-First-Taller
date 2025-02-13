@@ -7,12 +7,18 @@ class ControllerBasic {
     private val clients = mutableListOf<Client>()
     private val employees = mutableListOf<Employee>()
 
-
+    //----------------------------------------------------------------------------------------------------------------
 
 
     // CRUD para Clientes
     fun addClient(client: Client) {
-        clients.add(client)
+        var clienSer = serchCLiente(client.id)
+        if(clienSer==null){
+            clients.add(client)
+        }else{
+            println("El cliente ya existe")
+        }
+
     }
 
     fun serchCLiente(id: String): Client? {
@@ -26,16 +32,34 @@ class ControllerBasic {
 
     fun updateClient(id: String, name: String, address: String, phone: String) {
         val client = clients.find { it.id == id }
-        client?.apply {
-            this.name = name
-            this.address = address
-            this.phone = phone
+        if (client != null) {
+            client?.apply {
+                this.name = name
+                this.address = address
+                this.phone = phone
+            }
+        }else{
+            println("El cliente no existe")
         }
     }
 
     fun deleteClient(id: String) {
-        clients.removeIf { it.id == id }
+        var clienSer = serchCLiente(id)
+        if(clienSer!=null){
+            clients.removeIf { it.id == id }
+        }else{
+            println("El cliente no existe")
+        }
+
     }
+
+
+
+
+
+    //----------------------------------------------------------------------------------------------------------------
+
+
 
     // CRUD para Empleados
     fun addEmployee(employee: Employee) {
@@ -54,10 +78,16 @@ class ControllerBasic {
 
     fun updateEmployee(id: String, name: String, position: String, salary: Double) {
         val employee = employees.find { it.id == id }
-        employee?.apply {
-            this.name = name
-            this.position = position
-            this.salary = salary
+
+        if (employee != null) {
+
+            employee?.apply {
+                this.name = name
+                this.position = position
+                this.salary = salary
+            }
+        }else{
+            println("El empleado no existe")
         }
     }
 
@@ -71,7 +101,7 @@ class ControllerBasic {
         }
     }
 
-
+    //----------------------------------------------------------------------------------------------------------------
 
 
 
