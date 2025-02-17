@@ -13,21 +13,19 @@ fun decimalABaseDos(n: Int): String {
 
 
 //Punto 2 pasamos binario a decimal
-fun baseADecimal(base:Int) {
-    var baseInvert= base.toString().reversed()
-    var total=0
-    var valor=0
-  for ((i,bas) in baseInvert.withIndex()){
-    valor = bas.toString().toInt()*2.0.pow(i.toDouble()).toInt()
-      total+=valor
-  }
-println(total)
+fun binarioADecimal(binario: String): Int {
+    fun helper(binario: String, index: Int): Int {
+        if (index == binario.length) return 0
+        val bit = binario[binario.length - 1 - index].toString().toInt()
+        return bit * 2.0.pow(index).toInt() + helper(binario, index + 1)
+    }
+    return helper(binario, 0)
 }
 fun main() {
-    val decimal = 22
+    val decimal = 30
+    val binario = "10110"
     println("el valor decimal en base dos de $decimal es ${decimalABaseDos(decimal)}.")
-
-    baseADecimal(10001000)
+    println("El valor binario $binario en decimal es ${binarioADecimal(binario)}.")
 }
 
 
